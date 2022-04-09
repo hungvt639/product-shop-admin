@@ -1,0 +1,27 @@
+._upload-custom {
+    .upload {
+        width: 120px;
+        height: 120px;
+        border: dashed 1px #6e6e6e;
+        color: #6e6e6e;
+
+        border-radius: 3px;
+        overflow: hidden;
+        &:hover {
+            border-color: #fb6600;
+            color: #fb6600;
+        }
+        .btn-upload {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

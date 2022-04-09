@@ -1,0 +1,35 @@
+._select-color {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+}
+._form-product {
+    ._images-detail {
+        position: relative;
+        max-width: 120px;
+        max-height: 120px;
+        margin: 5px 10px;
+        // overflow: hidden;
+        .ant-image {
+            border: 1px dashed #888888;
+            &:hover {
+                border-color: #ff6600;
+            }
+        }
+        .close {
+            // width: 30px;
+            // height: 30px;
+            padding: 3px 10px;
+            position: absolute;
+            z-index: 5;
+            top: 0;
+            right: 0;
+            border-radius: 3px;
+            background-color: rgba(126, 126, 126, 0.5);
+            cursor: pointer;
+            &:hover {
+                color: white;
+            }
+        }
+    }
+}
