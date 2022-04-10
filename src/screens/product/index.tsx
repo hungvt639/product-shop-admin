@@ -1,25 +1,21 @@
 import { Image, Switch, Table } from "antd";
 import { Product } from "../../api/repository/productAPI";
+import { Type } from "../../api/repository/typeAPI";
 import Confirm from "../../components/confirm";
 import Modal from "../../components/modal";
-import FromCreate from "./FromCreate";
-import FormEdit from "./FromEdit";
+import From from "./From";
 import useProduct from "./hook/useProduct";
 
 const ProductComponent = () => {
     const {
         products,
-        create,
+        fHandler,
         del,
-        edit,
         itemEdit,
         setItemEdit,
-        setShowCreate,
-        setShowEdit,
-        showCreate,
-        showEdit,
+        showModel,
+        setShowModel,
     } = useProduct();
-    console.log("p", products);
     const colums = [
         {
             title: "STT",
@@ -34,25 +30,34 @@ const ProductComponent = () => {
             key: "name",
         },
         {
-            title: "Image",
-            dataIndex: "image",
-            key: "image",
-            render: (text: string) => <Image height={100} src={text} />,
+            title: "Ảnh",
+            dataIndex: "img",
+            key: "img",
+            render: (text: string) => (
+                <Image height={100} width={100} src={text} />
+            ),
+        },
+        {
+            title: "Nhóm",
+            dataIndex: "type",
+            key: "type",
+            render: (text: Type) => text.name,
         },
         {
             title: "Giá bán",
             dataIndex: "price",
             key: "price",
+            render: (text: number) => text.toLocaleString("vi-VN"),
         },
         {
-            title: "Đăng bán",
+            title: "Còn hàng",
             dataIndex: "isSale",
             key: "isSale",
             render: (text: boolean, record: Product) => (
                 <Switch
                     defaultChecked={text}
                     onChange={() =>
-                        edit(record._id, { isSale: !record.isSale })
+                        fHandler({ isSale: !record.isSale }, record._id)
                     }
                 />
             ),
@@ -68,7 +73,7 @@ const ProductComponent = () => {
                     <button
                         onClick={() => {
                             setItemEdit(record);
-                            setShowEdit(true);
+                            setShowModel(true);
                         }}
                         className="mr-3"
                     >
@@ -85,10 +90,16 @@ const ProductComponent = () => {
         },
     ];
     return (
-        <div className="_carousel p-5 overflow-auto h-full">
+        <div className="_product p-5 overflow-auto h-full">
             <h1>Danh sách sản phẩm</h1>
             <div className="flex justify-end">
-                <button onClick={() => setShowCreate(true)} className="mb-5">
+                <button
+                    onClick={() => {
+                        setItemEdit(undefined);
+                        setShowModel(true);
+                    }}
+                    className="mb-5"
+                >
                     Tạo mới
                 </button>
             </div>
@@ -98,11 +109,8 @@ const ProductComponent = () => {
                 dataSource={products}
                 rowKey={(r) => r._id}
             />
-            <Modal show={showEdit} onClose={() => setShowEdit(false)}>
-                {itemEdit && <FormEdit itemEdit={itemEdit} edit={edit} />}
-            </Modal>
-            <Modal show={showCreate} onClose={() => setShowCreate(false)}>
-                <FromCreate create={create} />
+            <Modal show={showModel} onClose={() => setShowModel(false)}>
+                <From fHandler={fHandler} itemEdit={itemEdit} />
             </Modal>
         </div>
     );

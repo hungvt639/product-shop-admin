@@ -70,15 +70,29 @@ export class CreateProduct {
     information?: string;
     sold?: number;
     isSale?: boolean;
-    constructor(data: CreateProduct | null) {
+    // constructor(data: CreateProduct | null) {
+    //     this.name = data?.name ?? undefined;
+    //     this.img = data?.img ?? undefined;
+    //     this.img1 = data?.img1 ?? undefined;
+    //     this.image = data?.image ?? undefined;
+    //     this.price = data?.price ?? undefined;
+    //     this.sizes = data?.sizes ?? undefined;
+    //     this.colors = data?.colors ?? undefined;
+    //     this.type = data?.type ?? undefined;
+    //     this.description = data?.description ?? undefined;
+    //     this.information = data?.information ?? undefined;
+    //     this.sold = data?.sold ?? undefined;
+    //     this.isSale = data?.isSale ?? undefined;
+    // }
+    constructor(data: Product | undefined) {
         this.name = data?.name ?? undefined;
         this.img = data?.img ?? undefined;
         this.img1 = data?.img1 ?? undefined;
         this.image = data?.image ?? undefined;
         this.price = data?.price ?? undefined;
         this.sizes = data?.sizes ?? undefined;
-        this.colors = data?.colors ?? undefined;
-        this.type = data?.type ?? undefined;
+        this.colors = data?.colors ? data.colors.map((c) => c._id) : undefined;
+        this.type = data?.type ? data.type._id : undefined;
         this.description = data?.description ?? undefined;
         this.information = data?.information ?? undefined;
         this.sold = data?.sold ?? undefined;
