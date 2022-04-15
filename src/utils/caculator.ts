@@ -45,3 +45,15 @@ export function hexToRgb(hex: string) {
             : defauf;
     }
 }
+
+export function formatDate(dateString: string) {
+    const d = new Date(dateString);
+    const year = d.getFullYear();
+    const date = d.getDate();
+    const month = d.getMonth();
+
+    const h = d.getHours();
+    const m = d.getMinutes();
+    const s = d.getSeconds();
+    return `${date}/${month}/${year} - ${h}:${m}:${s}`;
+}

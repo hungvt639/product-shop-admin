@@ -1,9 +1,9 @@
 import { useCallback, useState } from "react";
 import { FieldValues, UseFormReset } from "react-hook-form";
 import API from "../../../api";
+import { DataChangePassword } from "../../../api/repository/userAPI";
 import { errorAPI } from "../../../components/Error";
 import notify from "../../../components/notify";
-import { DataChangePassword } from "../../../interface/api/UserAPI";
 import { checkRePassword } from "../../../utils/validate";
 
 export interface DataValiChangePassword extends DataChangePassword {

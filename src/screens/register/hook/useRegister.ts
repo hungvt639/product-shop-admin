@@ -1,10 +1,9 @@
-import { AxiosResponse } from "axios";
 import { useCallback, useState } from "react";
 import { useHistory } from "react-router-dom";
 import API from "../../../api";
+import { DataRegister } from "../../../api/repository/userAPI";
 import { errorAPI } from "../../../components/Error";
 import notify from "../../../components/notify";
-import { DataRegister, ResponseRegister } from "../../../interface/api/UserAPI";
 import route from "../../../router/route";
 import { checkRePassword, validateEmail } from "../../../utils/validate";
 
@@ -35,8 +34,7 @@ const useRegister = () => {
                 checkRePassword(data.password, data.rePassword)
             ) {
                 try {
-                    const res: AxiosResponse<ResponseRegister> =
-                        await API.user.register(data);
+                    const res = await API.user.register(data);
                     console.log(res);
                     notify.success(
                         "Đăng ký tài khoản thành công, vui lòng đăng nhập để sử dụng dịch vụ"

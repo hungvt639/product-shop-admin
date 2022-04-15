@@ -1,8 +1,6 @@
 import React, { useCallback, useState } from "react";
-import { AxiosResponse } from "axios";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { ResponseLogin } from "../../../interface/api/UserAPI";
 import API from "../../../api";
 import action from "../../../store/actions";
 import notify from "../../../components/notify";
@@ -23,11 +21,10 @@ const useLogin = (props: any) => {
             e.preventDefault();
             if (username && password) {
                 try {
-                    const res: AxiosResponse<ResponseLogin> =
-                        await API.user.login({
-                            username,
-                            password,
-                        });
+                    const res = await API.user.login({
+                        username,
+                        password,
+                    });
                     localStorage.setItem("token", res.data.token);
                     dispatch(action.setResLogin(res.data.user, res.data.token));
                     notify.success("Đăng nhập thành công!");

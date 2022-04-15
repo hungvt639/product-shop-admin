@@ -5,6 +5,7 @@ import userAPI from "./repository/userAPI";
 import fileAPI from "./repository/fileAPI";
 import colorAPI from "./repository/colorAPI";
 import carouselAPI from "./repository/carouselAPI";
+import orderAPI from "./repository/orderAPI";
 
 const API = {
     user: userAPI,
@@ -14,6 +15,7 @@ const API = {
     file: fileAPI,
     color: colorAPI,
     carousel: carouselAPI,
+    order: orderAPI,
 };
 
 export default API;

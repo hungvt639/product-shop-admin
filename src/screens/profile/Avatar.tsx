@@ -1,10 +1,10 @@
-import { UserInterface } from "../../interface";
 import { Upload } from "antd";
 import ImgCrop from "antd-img-crop";
 import ChangeCircleOutlinedIcon from "@mui/icons-material/ChangeCircleOutlined";
 import _env from "../../_env";
 import Image from "../../components/image";
 import useAvatar from "./hook/useAvatar";
+import { UserInterface } from "../../api/repository/userAPI";
 type propsAvatar = {
     user?: UserInterface;
 };

@@ -12,6 +12,7 @@ const Type = React.lazy(() => import("../screens/type"));
 const Color = React.lazy(() => import("../screens/color"));
 const Size = React.lazy(() => import("../screens/size"));
 const Carousel = React.lazy(() => import("../screens/carousel"));
+const Order = React.lazy(() => import("../screens/order"));
 
 const PrivateRouter = () => {
     return (
@@ -52,6 +53,11 @@ const PrivateRouter = () => {
                                 exact
                                 path={route.CAROUSEL}
                                 component={WaitingComponent(Carousel)}
+                            />
+                            <Route
+                                exact
+                                path={route.ORDER}
+                                component={WaitingComponent(Order)}
                             />
                             <Route
                                 path={route.HOME}

@@ -8,11 +8,11 @@ import {
 } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import "./router.scss";
-import { AppState } from "../interface/redux";
-import { UserInterface } from "../interface";
 import API from "../api";
 import { AxiosResponse } from "axios";
 import action from "../store/actions";
+import { AppState } from "../store/interface";
+import { UserInterface } from "../api/repository/userAPI";
 
 const Login = React.lazy(() => import("../screens/login"));
 const Register = React.lazy(() => import("../screens/register"));

@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import API from "../../../api";
-import { AppState } from "../../../interface/redux";
+import { UserInterface } from "../../../api/repository/userAPI";
 import { errorAPI } from "../../../components/Error";
-import { UserInterface } from "../../../interface";
+import { AppState } from "../../../store/interface";
 
 const useProfile = (_id: any) => {
     const idUser = useSelector((state: AppState) => state.userState.user?._id);

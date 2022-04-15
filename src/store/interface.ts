@@ -1,6 +1,5 @@
-import store from "../../store";
-import { UserInterface } from "..";
-import { DataLogin } from "../api/UserAPI";
+import store from ".";
+import { UserInterface } from "../api/repository/userAPI";
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
@@ -19,9 +18,4 @@ export interface Action {
     type: string;
     user?: UserInterface;
     token?: string | null;
-    dataLogin?: DataLogin;
 }
-
-// export const initStateRedux: AppState = {
-//     userState: { user: undefined, token: localStorage.getItem("token") },
-// };

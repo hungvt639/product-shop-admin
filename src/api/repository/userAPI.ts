@@ -12,7 +12,7 @@ export interface UserInterface {
 }
 
 //register
-interface DataRegister {
+export interface DataRegister {
     email: string;
     username: string;
     password: string;
@@ -65,7 +65,7 @@ interface ResponseResetPassword {
 }
 
 //change password
-interface DataChangePassword {
+export interface DataChangePassword {
     old_password: string;
     password: string;
 }

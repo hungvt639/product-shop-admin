@@ -1,7 +1,5 @@
-import { AxiosResponse } from "axios";
 import { useState, useEffect, useCallback } from "react";
 import { Redirect } from "react-router-dom";
-import { ResponseActivateUser } from "../../interface/api/UserAPI";
 import API from "../../api";
 import route from "../../router/route";
 import { errorAPI } from "../../components/Error";
@@ -13,8 +11,9 @@ const ActivateUser = () => {
     const activate = useCallback(async () => {
         try {
             const active_token: string = window.location.search.split("=")[1];
-            const res: AxiosResponse<ResponseActivateUser> =
-                await API.user.activateUser({ active_token: active_token });
+            const res = await API.user.activateUser({
+                active_token: active_token,
+            });
             setLoading(false);
             notify.success(res.data.message);
         } catch (err: any) {

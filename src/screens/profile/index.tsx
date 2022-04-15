@@ -1,12 +1,12 @@
 import "./style.scss";
 import { useSelector } from "react-redux";
-import { AppState } from "../../interface/redux";
 import Avatar from "./Avatar";
 import Modal from "../../components/modal";
 import EditProfile from "./EditProfile";
 import ChangePassword from "./ChangePassword";
 import useProfile from "./hook/useProfile";
 import useEditProfile from "./hook/useEditProfile";
+import { AppState } from "../../store/interface";
 
 const Profile = (props: any) => {
     const idUser = useSelector((state: AppState) => state.userState.user?._id);
@@ -34,14 +34,14 @@ const Profile = (props: any) => {
                             <p className="laber-profile">Số điện thoại: </p>
                             <p>{user?.phone}</p>
                         </div> */}
-                        <div className="flex">
+                        {/* <div className="flex">
                             <p className="laber-profile">Địa chỉ: </p>
                             <p>{profile?.address}</p>
                         </div>
                         <div className="flex">
                             <p className="laber-profile">ngày sinh: </p>
                             <p>{profile?.birthday}</p>
-                        </div>
+                        </div> */}
                         {/* <div className="flex">
                             <p className="laber-profile">Giới tính: </p>
                             <p>

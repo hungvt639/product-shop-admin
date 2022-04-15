@@ -1,10 +1,8 @@
-import { AxiosResponse } from "axios";
 import React, { Fragment, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import API from "../../api";
 import { errorAPI } from "../../components/Error";
 import notify from "../../components/notify";
-import { ResponseResetPassword } from "../../interface/api/UserAPI";
 import route from "../../router/route";
 import { checkRePassword } from "../../utils/validate";
 import "./reset-password.scss";
@@ -20,12 +18,10 @@ const ResetPassword = (props: any) => {
         setValiRePassword(!checkRePassword(password, rePassword));
         if (checkRePassword(password, rePassword)) {
             try {
-                const res: AxiosResponse<ResponseResetPassword> =
-                    await API.user.resetPassword({
-                        password: password,
-                        reset_password_token:
-                            props.location.search.split("=")[1],
-                    });
+                const res = await API.user.resetPassword({
+                    password: password,
+                    reset_password_token: props.location.search.split("=")[1],
+                });
                 for (const m of res.data.message) {
                     notify.success(m);
                 }

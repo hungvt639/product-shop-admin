@@ -1,10 +1,8 @@
-import { AxiosResponse } from "axios";
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import API from "../../api";
 import { errorAPI } from "../../components/Error";
 import notify from "../../components/notify";
-import { ResponseSendResetPassword } from "../../interface/api/UserAPI";
 import route from "../../router/route";
 import "./send-reset-password.scss";
 const SendResetPassword = () => {
@@ -19,8 +17,7 @@ const SendResetPassword = () => {
         e.preventDefault();
         if (username) {
             try {
-                const res: AxiosResponse<ResponseSendResetPassword> =
-                    await API.user.sendResetPassword({ username });
+                const res = await API.user.sendResetPassword({ username });
                 for (const mess of res.data.message) {
                     notify.success(mess);
                     setOk(true);

@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { UserInterface } from "../../../interface";
 import action from "../../../store/actions";
 import { useCallback, useState } from "react";
 import notify from "../../../components/notify";
-import { AppState } from "../../../interface/redux";
+import { UserInterface } from "../../../api/repository/userAPI";
+import { AppState } from "../../../store/interface";
 
 const useAvatar = (user?: UserInterface) => {
     const dispatch = useDispatch();
