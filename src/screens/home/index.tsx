@@ -6,6 +6,7 @@ const Home = () => {
         <div>
             <div>{t("Home")}</div>
             <div>Đây là trang chủ</div>
+            <div>Hết...!</div>
         </div>
     );
 };

@@ -1,11 +1,16 @@
 import { AxiosResponse } from "axios";
+import utils from "../../utils";
 import AxiosAPI from "../config";
+import { Pagination, SearchBody } from "../interface";
 
 class OrderAPI {
     private resource = "apiv1/order";
 
-    public get = (): Promise<AxiosResponse<Order[]>> => {
-        return AxiosAPI(true).get(`${this.resource}`);
+    public gets = (
+        obj?: SearchBody
+    ): Promise<AxiosResponse<Pagination<Order>>> => {
+        const str = utils.objToSearch(obj);
+        return AxiosAPI(true).get(`${this.resource}${str}`);
     };
 
     public create = (data: CreateOrder): Promise<AxiosResponse<Order>> => {
@@ -34,32 +39,32 @@ export interface Order {
     address: string;
     status: number;
     price: number;
-    orderProduct: [
-        {
-            product: {
-                name: string;
-                slug: string;
-                img: string;
-                img1: string;
-                price: number;
-                type: string;
-                _id: string;
-            };
-            amount: number;
-            size: string;
-            color: {
-                name: string;
-                code: string;
-                _id: string;
-            };
-            _id: string;
-        }
-    ];
+    orderProduct: OrrderProduct[];
     ship: number;
     note: string;
     noteAdmin: string;
     created_at: string;
     updated_at: string;
+}
+
+export interface OrrderProduct {
+    product: {
+        name: string;
+        slug: string;
+        img: string;
+        img1: string;
+        price: number;
+        type: string;
+        _id: string;
+    };
+    amount: number;
+    size: string;
+    color: {
+        name: string;
+        code: string;
+        _id: string;
+    };
+    _id: string;
 }
 
 export class CreateOrder {

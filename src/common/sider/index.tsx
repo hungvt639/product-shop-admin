@@ -29,7 +29,7 @@ const Slider = () => {
                 },
                 {
                     icon: "",
-                    name: "Loại sản phẩm",
+                    name: "Nhóm sản phẩm",
                     to: route.TYPE,
                 },
                 {

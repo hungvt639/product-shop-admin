@@ -4,4 +4,18 @@
         height: 24px;
         border-radius: 2px;
     }
+    ._form-status {
+        .ant-form-item {
+            margin-bottom: 0;
+        }
+        button {
+            padding: 0px 10px;
+            border-radius: 2px;
+        }
+    }
+    ._note-admin {
+        .ant-form-item {
+            margin-bottom: 5px;
+        }
+    }
 }

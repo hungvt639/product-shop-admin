@@ -1,4 +1,4 @@
-import { Image, Switch, Table } from "antd";
+import { Image, Switch, Table, Pagination } from "antd";
 import { Product } from "../../api/repository/productAPI";
 import { Type } from "../../api/repository/typeAPI";
 import Confirm from "../../components/confirm";
@@ -8,6 +8,7 @@ import useProduct from "./hook/useProduct";
 
 const ProductComponent = () => {
     const {
+        docs,
         products,
         fHandler,
         del,
@@ -15,6 +16,8 @@ const ProductComponent = () => {
         setItemEdit,
         showModel,
         setShowModel,
+        pages,
+        setPages,
     } = useProduct();
     const colums = [
         {
@@ -109,6 +112,22 @@ const ProductComponent = () => {
                 dataSource={products}
                 rowKey={(r) => r._id}
             />
+            <div className="flex justify-center mt-5">
+                <Pagination
+                    showSizeChanger
+                    defaultCurrent={pages.page}
+                    pageSize={pages.limit}
+                    current={pages.page}
+                    total={docs?.totalDocs}
+                    pageSizeOptions={["5", "10", "20", "50", "100"]}
+                    onChange={(page, limit) =>
+                        setPages({ page, limit: limit ?? 10 })
+                    }
+                    showTotal={(total, range) => (
+                        <div>{`${range[0]}-${range[1]} of ${total} items`}</div>
+                    )}
+                />
+            </div>
             <Modal show={showModel} onClose={() => setShowModel(false)}>
                 <From fHandler={fHandler} itemEdit={itemEdit} />
             </Modal>

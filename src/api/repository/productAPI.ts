@@ -1,16 +1,21 @@
 import { AxiosResponse } from "axios";
+import utils from "../../utils";
 import AxiosAPI from "../config";
+import { Pagination, SearchBody } from "../interface";
 import { Color } from "./colorAPI";
 import { Type } from "./typeAPI";
 
 class ProductAPI {
     private resource = "apiv1/product";
 
-    public getProducts = (): Promise<AxiosResponse<Product[]>> => {
-        return AxiosAPI(true).get(`${this.resource}`);
+    public gets = (
+        obj?: SearchBody
+    ): Promise<AxiosResponse<Pagination<Product>>> => {
+        const str = utils.objToSearch(obj);
+        return AxiosAPI(true).get(`${this.resource}${str}`);
     };
 
-    public getProductSale = (): Promise<AxiosResponse<Product[]>> => {
+    public getProductSale = (): Promise<AxiosResponse<Pagination<Product>>> => {
         return AxiosAPI(true).get(`${this.resource}/sale`);
     };
 

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import API from "../../../api";
+import { Pagination } from "../../../api/interface";
 import { Product, CreateProduct } from "../../../api/repository/productAPI";
 import { errorAPI } from "../../../components/Error";
 import notify from "../../../components/notify";
@@ -8,18 +9,30 @@ const useProduct = () => {
     const [products, setProducts] = useState<Product[]>([]);
     const [itemEdit, setItemEdit] = useState<Product>();
     const [showModel, setShowModel] = useState<boolean>(false);
-    const getProduct = useCallback(async () => {
+    const [docs, setDocs] = useState<Pagination<Product>>();
+    const [pages, setPages] = useState({
+        page: 1,
+        limit: 5,
+    });
+    const getDocs = useCallback(async () => {
         try {
-            const res = await API.product.getProducts();
-            setProducts(res.data);
+            const res = await API.product.gets(pages);
+            setDocs(res.data);
         } catch (e) {
             errorAPI(e);
         }
-    }, []);
+    }, [pages]);
 
     useEffect(() => {
-        getProduct();
-    }, [getProduct]);
+        getDocs();
+    }, [getDocs]);
+
+    useEffect(() => {
+        if (docs) {
+            setProducts(docs.docs);
+        }
+    }, [docs]);
+
     const del = useCallback(async (id: string) => {
         try {
             await API.product.deleteProduct(id);
@@ -91,6 +104,7 @@ const useProduct = () => {
     //     }
     // }, []);
     return {
+        docs,
         products,
         del,
         itemEdit,
@@ -98,6 +112,8 @@ const useProduct = () => {
         showModel,
         setShowModel,
         fHandler,
+        pages,
+        setPages,
     };
 };
 export default useProduct;

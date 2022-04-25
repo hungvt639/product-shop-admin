@@ -35,7 +35,7 @@ interface ResponseActivateUser {
 }
 
 //login
-interface DataLogin {
+ interface DataLogin {
     username: string;
     password: string;
 }
