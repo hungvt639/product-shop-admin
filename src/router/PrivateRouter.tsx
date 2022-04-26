@@ -13,6 +13,7 @@ const Color = React.lazy(() => import("../screens/color"));
 const Size = React.lazy(() => import("../screens/size"));
 const Carousel = React.lazy(() => import("../screens/carousel"));
 const Order = React.lazy(() => import("../screens/order"));
+const BlogLink = React.lazy(() => import("../screens/blog-link"));
 
 const PrivateRouter = () => {
     return (
@@ -58,6 +59,11 @@ const PrivateRouter = () => {
                                 exact
                                 path={route.ORDER}
                                 component={WaitingComponent(Order)}
+                            />
+                            <Route
+                                exact
+                                path={route.BLOG_LINK}
+                                component={WaitingComponent(BlogLink)}
                             />
                             <Route
                                 path={route.HOME}

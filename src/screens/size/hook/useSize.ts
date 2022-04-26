@@ -22,7 +22,7 @@ const useSize = () => {
 
     const del = useCallback(async (id: string) => {
         try {
-            await API.color.deleteColor(id);
+            await API.size.deleteSize(id);
             setSize((value) => value.filter((val) => val._id !== id));
         } catch (e) {
             errorAPI(e);

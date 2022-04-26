@@ -6,6 +6,7 @@ import fileAPI from "./repository/fileAPI";
 import colorAPI from "./repository/colorAPI";
 import carouselAPI from "./repository/carouselAPI";
 import orderAPI from "./repository/orderAPI";
+import blogLinkAPI from "./repository/blogLinkAPI";
 
 const API = {
     user: userAPI,
@@ -16,6 +17,7 @@ const API = {
     color: colorAPI,
     carousel: carouselAPI,
     order: orderAPI,
+    blog_link: blogLinkAPI,
 };
 
 export default API;

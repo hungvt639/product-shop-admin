@@ -15,13 +15,13 @@ import { AppState } from "../store/interface";
 import { UserInterface } from "../api/repository/userAPI";
 
 const Login = React.lazy(() => import("../screens/login"));
-const Register = React.lazy(() => import("../screens/register"));
+// const Register = React.lazy(() => import("../screens/register"));
 const PrivateRouter = React.lazy(() => import("./PrivateRouter"));
-const ActivateUser = React.lazy(() => import("../screens/activate-user"));
-const SendResetPassword = React.lazy(
-    () => import("../screens/send-reset-password")
-);
-const ResetPassword = React.lazy(() => import("../screens/reset-password"));
+// const ActivateUser = React.lazy(() => import("../screens/activate-user"));
+// const SendResetPassword = React.lazy(
+//     () => import("../screens/send-reset-password")
+// );
+// const ResetPassword = React.lazy(() => import("../screens/reset-password"));
 
 export function WaitingComponent(
     Component: React.LazyExoticComponent<(props: any) => JSX.Element>
@@ -42,7 +42,7 @@ const Routers = () => {
                     path={routes.LOGIN}
                     component={WaitingComponent(Login)}
                 />
-                <Route
+                {/* <Route
                     exact
                     path={routes.REGISTER}
                     component={WaitingComponent(Register)}
@@ -61,7 +61,7 @@ const Routers = () => {
                     exact
                     path={routes.RESET_PASSWORD}
                     component={WaitingComponent(ResetPassword)}
-                />
+                /> */}
                 <CheckLogin />
             </Switch>
         </Router>

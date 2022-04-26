@@ -18,5 +18,6 @@ const route = {
     SIZE: "/size",
     ORDER: "/order",
     CAROUSEL: "/carousel",
+    BLOG_LINK: "/blog-link",
 };
 export default route;

@@ -54,6 +54,16 @@ const Slider = () => {
                 },
             ],
         },
+        {
+            name: "OTHERS",
+            content: [
+                {
+                    icon: "",
+                    name: "Liên kết",
+                    to: route.BLOG_LINK,
+                },
+            ],
+        },
     ];
     return (
         <div className="slider">
