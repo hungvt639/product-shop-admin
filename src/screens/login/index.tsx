@@ -65,16 +65,16 @@ const LoginForm = (props: any) => {
                             <Fragment />
                         )}
                     </label>
-                    <div className="forgot-password">
+                    {/* <div className="forgot-password">
                         <Link to={route.SEND_RESET_PASSWORD}>
                             Quên mật khẩu
                         </Link>
-                    </div>
+                    </div> */}
                     <button type="submit">Đăng nhập</button>
-                    <p className="form-has-user">
+                    {/* <p className="form-has-user">
                         Không có tài khoản{" "}
                         <Link to={route.REGISTER}>Đăng ký ngay</Link>
-                    </p>
+                    </p> */}
                 </form>
             </div>
         </div>
