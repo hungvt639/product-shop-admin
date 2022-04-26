@@ -1,7 +1,7 @@
 import "./style.scss";
 import { Fragment } from "react";
-import route from "../../router/route";
-import { Link } from "react-router-dom";
+// import route from "../../router/route";
+// import { Link } from "react-router-dom";
 import useLogin from "./hook/useLogin";
 const LoginForm = (props: any) => {
     const {
