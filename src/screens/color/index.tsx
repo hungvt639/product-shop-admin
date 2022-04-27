@@ -79,7 +79,7 @@ const ColorComponent = () => {
 
     return (
         <div className="_color p-5 overflow-auto h-full">
-            <h1>Loại sản phẩm</h1>
+            <h1>Màu</h1>
             <div className="flex justify-end">
                 <button onClick={() => setShowCreate(true)} className="mb-5">
                     Tạo mới

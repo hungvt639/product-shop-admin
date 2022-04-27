@@ -21,7 +21,9 @@ const FromCreate = ({ create, itemEdit }: FromCreateProps) => {
     };
     return (
         <form className="px-3" onSubmit={onSubmit}>
-            <h1 className="text-center"> Tạo mới Liên kết</h1>
+            <h1 className="text-center">
+                {itemEdit ? "Chỉnh sửa" : "Tạo mới"} Liên kết
+            </h1>
             <div className="">
                 <label>Tên</label>
                 <input
@@ -50,7 +52,7 @@ const FromCreate = ({ create, itemEdit }: FromCreateProps) => {
             </div>
             <div className="flex justify-end">
                 <button className="mt-5" type="submit">
-                    Tạo mới
+                    {itemEdit ? "Chỉnh sửa" : "Tạo mới"}
                 </button>
             </div>
         </form>

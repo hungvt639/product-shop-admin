@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import route from "../../router/route";
 import "./slide.scss";
-
-const Slider = () => {
+type SiderProps = {
+    pathname: string;
+};
+const Slider = ({ pathname }: SiderProps) => {
     const siders = [
         {
             name: "HOME",
@@ -66,14 +68,24 @@ const Slider = () => {
         },
     ];
     return (
-        <div className="slider">
-            <div className="w-full px-5 py-2">Uyn Shop</div>
+        <div className="slider border-r">
+            <div className="w-full px-5 py-2">SHOP</div>
             {siders.map((sider, index) => (
                 <div key={index} className="px-5">
-                    <h3 className="my-0">{sider.name}</h3>
-                    <ul className="ml-3">
+                    <h3 className="my-0 font-bold text-xl text-black">
+                        {sider.name}
+                    </h3>
+                    <ul className="">
                         {sider.content.map((c, i) => (
-                            <li key={i}>{<Link to={c.to}>{c.name}</Link>}</li>
+                            <Link key={i} className="" to={c.to}>
+                                <li
+                                    className={`text-white hover:text-black bg-gray-400 hover:bg-gray-200 rounded mb-2 px-3 py-1${
+                                        pathname === c.to ? " bg-green-900" : ""
+                                    }`}
+                                >
+                                    {c.name}
+                                </li>
+                            </Link>
                         ))}
                     </ul>
                 </div>

@@ -86,7 +86,7 @@ const OrderComponent = () => {
                                             status={getStatus(order, i)}
                                         />
                                     ) : (
-                                        <Fragment />
+                                        <Fragment key={i} />
                                     )
                                 )}
                             </Steps>

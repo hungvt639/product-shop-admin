@@ -15,13 +15,15 @@ const Carousel = React.lazy(() => import("../screens/carousel"));
 const Order = React.lazy(() => import("../screens/order"));
 const BlogLink = React.lazy(() => import("../screens/blog-link"));
 
-const PrivateRouter = () => {
+const PrivateRouter = (props: any) => {
+    console.log("p", props.location.pathname);
+
     return (
         <>
             <Header />
             <div className="content">
                 <div className="w-full h-full flex flex-row">
-                    <Sider />
+                    <Sider pathname={props.location.pathname} />
                     <div className="flex-1 h-full overflow-hidden">
                         <Switch>
                             <Route

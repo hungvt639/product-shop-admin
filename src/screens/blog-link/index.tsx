@@ -65,7 +65,7 @@ const SizeComponent = () => {
     ];
     return (
         <div className="p-5 overflow-auto h-full">
-            <h1>Size</h1>
+            <h1>Liên kết</h1>
             <div className="flex justify-end">
                 <button
                     onClick={() => {
@@ -84,7 +84,7 @@ const SizeComponent = () => {
                 rowKey={(r) => r._id}
             />
             <Modal show={showCreate} onClose={() => setShowCreate(false)}>
-                <FromCreate create={fHandler} />
+                <FromCreate create={fHandler} itemEdit={itemEdit} />
             </Modal>
         </div>
     );
