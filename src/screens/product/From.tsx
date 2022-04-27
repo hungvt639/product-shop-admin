@@ -15,15 +15,13 @@ type FromCreateProps = {
     fHandler: (data: CreateProduct, id?: string) => Promise<void>;
     itemEdit?: Product;
 };
-const dd =
-    "<p>👉 Nếu chưa biết lựa size bạn có thể inbox để được chúng mình tư vấn.</p><p>🔹 Chính sách đổi trả Outerity Kids<br>– Miễn phí đổi hàng cho khách mua ở Outerity trong trường hợp bị lỗi từ nhà sản xuất, giao nhầm hàng, nhầm size.<br>- Quay video mở sản phẩm khi nhận hàng, nếu không có video unbox, khi phát hiện lỗi phải báo ngay cho Outerity trong 1 ngày tính từ ngày giao hàng thành công. Qua 1 ngày chúng mình không giải quyết khi không có video unbox.<br>– Sản phẩm đổi trong thời gian 3 ngày kể từ ngày nhận hàng<br>– Sản phẩm còn mới nguyên tem, tags, sản phẩm chưa giặt và không dơ bẩn, hư hỏng bởi những tác nhân bên ngoài cửa hàng sau khi mua hàng.</p>";
 const FromCreate = ({ fHandler, itemEdit }: FromCreateProps) => {
     const [value, setValue] = useState(new CreateProduct(itemEdit));
     const [imgs, setImgs] = useState("");
     const [image, setImages] = useState<string[]>(itemEdit?.image ?? []);
 
     const [description, setDescription] = useState<string>(
-        itemEdit?.description ?? dd
+        itemEdit?.description ?? ""
     );
     const [information, setInformation] = useState<string>(
         itemEdit?.information ?? ""

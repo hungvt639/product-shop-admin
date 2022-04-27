@@ -1,4 +1,5 @@
 import Routers from "./router";
+import "./index.css";
 import "antd/dist/antd.css";
 import "./App.scss";
 
