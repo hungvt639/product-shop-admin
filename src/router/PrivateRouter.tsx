@@ -16,67 +16,32 @@ const Order = React.lazy(() => import("../screens/order"));
 const BlogLink = React.lazy(() => import("../screens/blog-link"));
 
 const PrivateRouter = (props: any) => {
-    console.log("p", props.location.pathname);
+  console.log("p", props.location.pathname);
 
-    return (
-        <>
-            <Header />
-            <div className="content">
-                <div className="w-full h-full flex flex-row">
-                    <Sider pathname={props.location.pathname} />
-                    <div className="flex-1 h-full overflow-hidden">
-                        <Switch>
-                            <Route
-                                exact
-                                path={route.USER_PROFILE_ROUTER}
-                                component={WaitingComponent(Profile)}
-                            />
+  return (
+    <>
+      <Header />
+      <div className="content">
+        <div className="w-full h-full flex flex-row">
+          <Sider pathname={props.location.pathname} />
+          <div className="flex-1 h-full overflow-hidden">
+            <Switch>
+              <Route exact path={route.USER_PROFILE_ROUTER} component={WaitingComponent(Profile)} />
 
-                            <Route
-                                exact
-                                path={route.PRODUCT}
-                                component={WaitingComponent(Product)}
-                            />
-                            <Route
-                                exact
-                                path={route.TYPE}
-                                component={WaitingComponent(Type)}
-                            />
-                            <Route
-                                exact
-                                path={route.COLOR}
-                                component={WaitingComponent(Color)}
-                            />
-                            <Route
-                                exact
-                                path={route.SIZE}
-                                component={WaitingComponent(Size)}
-                            />
-                            <Route
-                                exact
-                                path={route.CAROUSEL}
-                                component={WaitingComponent(Carousel)}
-                            />
-                            <Route
-                                exact
-                                path={route.ORDER}
-                                component={WaitingComponent(Order)}
-                            />
-                            <Route
-                                exact
-                                path={route.BLOG_LINK}
-                                component={WaitingComponent(BlogLink)}
-                            />
-                            <Route
-                                path={route.HOME}
-                                component={WaitingComponent(Home)}
-                            />
-                        </Switch>
-                    </div>
-                </div>
-            </div>
-        </>
-    );
+              <Route exact path={route.PRODUCT} component={WaitingComponent(Product)} />
+              <Route exact path={route.TYPE} component={WaitingComponent(Type)} />
+              <Route exact path={route.COLOR} component={WaitingComponent(Color)} />
+              <Route exact path={route.SIZE} component={WaitingComponent(Size)} />
+              <Route exact path={route.CAROUSEL} component={WaitingComponent(Carousel)} />
+              <Route exact path={route.ORDER} component={WaitingComponent(Order)} />
+              <Route exact path={route.BLOG_LINK} component={WaitingComponent(BlogLink)} />
+              <Route path={route.HOME} component={WaitingComponent(Home)} />
+            </Switch>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default PrivateRouter;

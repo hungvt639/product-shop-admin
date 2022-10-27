@@ -1,21 +1,21 @@
 .notification-validate {
-    color: red;
-    margin: 0;
-    font-size: small;
+  color: red;
+  margin: 0;
+  font-size: small;
 }
 .new-blog {
-    max-width: 1200px;
-    width: 100%;
-    h1 {
-        text-align: center;
-    }
-    .input-title {
-        margin-bottom: 20px;
-    }
-    .btn-create-new-blog {
-        margin-top: 20px;
-        margin-bottom: 50px;
-        display: flex;
-        justify-content: flex-end;
-    }
+  max-width: 1200px;
+  width: 100%;
+  h1 {
+    text-align: center;
+  }
+  .input-title {
+    margin-bottom: 20px;
+  }
+  .btn-create-new-blog {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: flex-end;
+  }
 }

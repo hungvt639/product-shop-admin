@@ -2,14 +2,11 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import useEditProfile from "./hook/useEditProfile";
 const EditProfile = () => {
-    const { /*register,*/ handleSubmit } = useForm();
-    const { editProfile } = useEditProfile();
-    return (
-        <form
-            className="form-edit_profile"
-            onSubmit={handleSubmit(editProfile)}
-        >
-            {/* <div className="flex-row">
+  const { /*register,*/ handleSubmit } = useForm();
+  const { editProfile } = useEditProfile();
+  return (
+    <form className="form-edit_profile" onSubmit={handleSubmit(editProfile)}>
+      {/* <div className="flex-row">
                 <div
                     className="form-edit-profile-label"
                     style={{ marginRight: "10px" }}
@@ -102,11 +99,11 @@ const EditProfile = () => {
                     Khác
                 </label>
             </div> */}
-            <input />
-            <div className="btn-submit">
-                <button type="submit">Chỉnh sửa</button>
-            </div>
-        </form>
-    );
+      <input />
+      <div className="btn-submit">
+        <button type="submit">Chỉnh sửa</button>
+      </div>
+    </form>
+  );
 };
 export default EditProfile;

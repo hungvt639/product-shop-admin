@@ -6,36 +6,30 @@ import useAvatar from "./hook/useAvatar";
 import { UserInterface } from "../../api/repository/userAPI";
 import { MdOutlineChangeCircle } from "react-icons/md";
 type propsAvatar = {
-    user?: UserInterface;
+  user?: UserInterface;
 };
 const Avatar = (props: propsAvatar) => {
-    const { user } = props;
-    const { loading, beforeUpload, changeAvatar, token } = useAvatar(user);
+  const { user } = props;
+  const { loading, beforeUpload, changeAvatar, token } = useAvatar(user);
 
-    return (
-        <div className="avatar">
-            <div className="avatar-img">
-                <Image
-                    width="100%"
-                    height="100%"
-                    alt="avatar"
-                    className="avatar-image"
-                    src={user?.avatar ?? ""}
-                />
-                <ImgCrop>
-                    <Upload
-                        name="avatar"
-                        listType="picture-card"
-                        className={loading ? "change-avatar" : "change-avatar"}
-                        showUploadList={false}
-                        action={_env.URL_IMG_UPLOAD}
-                        beforeUpload={beforeUpload}
-                        headers={{
-                            Authorization: "Bearer " + token,
-                        }}
-                        onChange={changeAvatar}
-                    >
-                        {/* {loading ? (
+  return (
+    <div className="avatar">
+      <div className="avatar-img">
+        <Image width="100%" height="100%" alt="avatar" className="avatar-image" src={user?.avatar ?? ""} />
+        <ImgCrop>
+          <Upload
+            name="avatar"
+            listType="picture-card"
+            className={loading ? "change-avatar" : "change-avatar"}
+            showUploadList={false}
+            action={_env.URL_IMG_UPLOAD}
+            beforeUpload={beforeUpload}
+            headers={{
+              Authorization: "Bearer " + token,
+            }}
+            onChange={changeAvatar}
+          >
+            {/* {loading ? (
                                 <span className="avatar-uploader-button_loading">
                                     <LoadingOutlined />
                                 </span>
@@ -44,12 +38,12 @@ const Avatar = (props: propsAvatar) => {
                                     Thay đổi
                                 </span>
                             )} */}
-                        <MdOutlineChangeCircle />
-                    </Upload>
-                </ImgCrop>
-            </div>
-            <p className="fullname">{user?.fullname}</p>
-        </div>
-    );
+            <MdOutlineChangeCircle />
+          </Upload>
+        </ImgCrop>
+      </div>
+      <p className="fullname">{user?.fullname}</p>
+    </div>
+  );
 };
 export default Avatar;

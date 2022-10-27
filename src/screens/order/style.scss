@@ -1,21 +1,21 @@
 ._order {
-    ._show-color {
-        width: 24px;
-        height: 24px;
-        border-radius: 2px;
+  ._show-color {
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+  }
+  ._form-status {
+    .ant-form-item {
+      margin-bottom: 0;
     }
-    ._form-status {
-        .ant-form-item {
-            margin-bottom: 0;
-        }
-        button {
-            padding: 0px 10px;
-            border-radius: 2px;
-        }
+    button {
+      padding: 0px 10px;
+      border-radius: 2px;
     }
-    ._note-admin {
-        .ant-form-item {
-            margin-bottom: 5px;
-        }
+  }
+  ._note-admin {
+    .ant-form-item {
+      margin-bottom: 5px;
     }
+  }
 }

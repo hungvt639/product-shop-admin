@@ -1,11 +1,6 @@
 import React, { Suspense, useEffect, useState } from "react";
 import routes from "./route";
-import {
-    Route,
-    Redirect,
-    Switch,
-    BrowserRouter as Router,
-} from "react-router-dom";
+import { Route, Redirect, Switch, BrowserRouter as Router } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import "./router.scss";
 import API from "../api";
@@ -23,26 +18,20 @@ const PrivateRouter = React.lazy(() => import("./PrivateRouter"));
 // );
 // const ResetPassword = React.lazy(() => import("../screens/reset-password"));
 
-export function WaitingComponent(
-    Component: React.LazyExoticComponent<(props: any) => JSX.Element>
-) {
-    return (props: any) => (
-        <Suspense fallback={<div>loading</div>}>
-            <Component {...props} />
-        </Suspense>
-    );
+export function WaitingComponent(Component: React.LazyExoticComponent<(props: any) => JSX.Element>) {
+  return (props: any) => (
+    <Suspense fallback={<div>loading</div>}>
+      <Component {...props} />
+    </Suspense>
+  );
 }
 
 const Routers = () => {
-    return (
-        <Router>
-            <Switch>
-                <Route
-                    exact
-                    path={routes.LOGIN}
-                    component={WaitingComponent(Login)}
-                />
-                {/* <Route
+  return (
+    <Router>
+      <Switch>
+        <Route exact path={routes.LOGIN} component={WaitingComponent(Login)} />
+        {/* <Route
                     exact
                     path={routes.REGISTER}
                     component={WaitingComponent(Register)}
@@ -62,51 +51,44 @@ const Routers = () => {
                     path={routes.RESET_PASSWORD}
                     component={WaitingComponent(ResetPassword)}
                 /> */}
-                <CheckLogin />
-            </Switch>
-        </Router>
-    );
+        <CheckLogin />
+      </Switch>
+    </Router>
+  );
 };
 export default Routers;
 
 const CheckLogin = (props: any) => {
-    const [loading, setLoading] = useState<boolean>(true);
-    const dispatch = useDispatch();
-    const token = useSelector((state: AppState) => state.userState.token);
-    useEffect(() => {
-        async function getProfile() {
-            if (token) {
-                try {
-                    const res: AxiosResponse<UserInterface> =
-                        await API.user.getProfile();
+  const [loading, setLoading] = useState<boolean>(true);
+  const dispatch = useDispatch();
+  const token = useSelector((state: AppState) => state.userState.token);
+  useEffect(() => {
+    async function getProfile() {
+      if (token) {
+        try {
+          const res: AxiosResponse<UserInterface> = await API.user.getProfile();
 
-                    dispatch(action.setUser(res.data));
-                } catch (e) {
-                    dispatch(action.clearUser());
-                    localStorage.removeItem("token");
-                }
-            }
+          dispatch(action.setUser(res.data));
+        } catch (e) {
+          dispatch(action.clearUser());
+          localStorage.removeItem("token");
         }
-        getProfile();
-        setLoading(false);
-    }, [token, dispatch]);
-    if (loading) {
-        return <div>Loading...!</div>;
+      }
     }
-    if (token)
-        return (
-            <Route
-                path={routes.HOME}
-                component={WaitingComponent(PrivateRouter)}
-            />
-        );
-    else
-        return (
-            <Redirect
-                to={{
-                    pathname: routes.LOGIN,
-                    search: `?next=${props.location.pathname}${props.location.search}`,
-                }}
-            />
-        );
+    getProfile();
+    setLoading(false);
+  }, [token, dispatch]);
+  if (loading) {
+    return <div>Loading...!</div>;
+  }
+  if (token) return <Route path={routes.HOME} component={WaitingComponent(PrivateRouter)} />;
+  else
+    return (
+      <Redirect
+        to={{
+          pathname: routes.LOGIN,
+          search: `?next=${props.location.pathname}${props.location.search}`,
+        }}
+      />
+    );
 };

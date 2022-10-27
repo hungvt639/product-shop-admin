@@ -9,32 +9,32 @@ import useEditProfile from "./hook/useEditProfile";
 import { AppState } from "../../store/interface";
 
 const Profile = (props: any) => {
-    const idUser = useSelector((state: AppState) => state.userState.user?._id);
+  const idUser = useSelector((state: AppState) => state.userState.user?._id);
 
-    const { profile } = useProfile(idUser);
-    const { showEdit, setShowEdit } = useEditProfile();
+  const { profile } = useProfile(idUser);
+  const { showEdit, setShowEdit } = useEditProfile();
 
-    return (
-        <div className="_profile">
-            <div className="show-profile flex">
-                <div className="left flex justify-center items-center">
-                    <Avatar user={profile} />
-                </div>
-                <div className="right">
-                    <div className="right-top">
-                        <div className="flex">
-                            <p className="laber-profile">Họ và Tên: </p>
-                            <p>{profile?.fullname}</p>
-                        </div>
-                        <div className="flex">
-                            <p className="laber-profile">Email: </p>
-                            <p>{profile?.email}</p>
-                        </div>
-                        {/* <div className="flex">
+  return (
+    <div className="_profile">
+      <div className="show-profile flex">
+        <div className="left flex justify-center items-center">
+          <Avatar user={profile} />
+        </div>
+        <div className="right">
+          <div className="right-top">
+            <div className="flex">
+              <p className="laber-profile">Họ và Tên: </p>
+              <p>{profile?.fullname}</p>
+            </div>
+            <div className="flex">
+              <p className="laber-profile">Email: </p>
+              <p>{profile?.email}</p>
+            </div>
+            {/* <div className="flex">
                             <p className="laber-profile">Số điện thoại: </p>
                             <p>{user?.phone}</p>
                         </div> */}
-                        {/* <div className="flex">
+            {/* <div className="flex">
                             <p className="laber-profile">Địa chỉ: </p>
                             <p>{profile?.address}</p>
                         </div>
@@ -42,7 +42,7 @@ const Profile = (props: any) => {
                             <p className="laber-profile">ngày sinh: </p>
                             <p>{profile?.birthday}</p>
                         </div> */}
-                        {/* <div className="flex">
+            {/* <div className="flex">
                             <p className="laber-profile">Giới tính: </p>
                             <p>
                                 {user?.gender === 1
@@ -52,21 +52,19 @@ const Profile = (props: any) => {
                                     : "Khác"}
                             </p>
                         </div> */}
-                        <div className="btn-edit-profile">
-                            <button onClick={() => setShowEdit(true)}>
-                                Chỉnh sửa thông tin
-                            </button>
-                        </div>
-                    </div>
-                    <div className="right-bottom flex-1">
-                        <ChangePassword />
-                    </div>
-                </div>
+            <div className="btn-edit-profile">
+              <button onClick={() => setShowEdit(true)}>Chỉnh sửa thông tin</button>
             </div>
-            <Modal show={showEdit} onClose={() => setShowEdit(false)}>
-                <EditProfile />
-            </Modal>
+          </div>
+          <div className="right-bottom flex-1">
+            <ChangePassword />
+          </div>
         </div>
-    );
+      </div>
+      <Modal show={showEdit} onClose={() => setShowEdit(false)}>
+        <EditProfile />
+      </Modal>
+    </div>
+  );
 };
 export default Profile;
