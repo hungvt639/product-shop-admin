@@ -1,10 +1,10 @@
 import { Upload } from "antd";
 import ImgCrop from "antd-img-crop";
-import ChangeCircleOutlinedIcon from "@mui/icons-material/ChangeCircleOutlined";
 import _env from "../../_env";
 import Image from "../../components/image";
 import useAvatar from "./hook/useAvatar";
 import { UserInterface } from "../../api/repository/userAPI";
+import { MdOutlineChangeCircle } from "react-icons/md";
 type propsAvatar = {
     user?: UserInterface;
 };
@@ -44,7 +44,7 @@ const Avatar = (props: propsAvatar) => {
                                     Thay đổi
                                 </span>
                             )} */}
-                        <ChangeCircleOutlinedIcon />
+                        <MdOutlineChangeCircle />
                     </Upload>
                 </ImgCrop>
             </div>

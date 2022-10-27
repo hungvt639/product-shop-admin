@@ -5,26 +5,27 @@ import { initReactI18next } from "react-i18next";
 import en from "./en";
 import vi from "./vi";
 type Resources = {
-    vi: typeof vi;
-    en: typeof en;
+  vi: typeof vi;
+  en: typeof en;
 };
 
 const resources: Resources = {
-    vi: vi,
-    en: en,
+  vi: vi,
+  en: en,
 };
 
-i18n.use(initReactI18next)
-    .use(Backend)
-    .use(LanguageDetector)
-    .init({
-        resources: resources,
-        lng: "vi",
-        fallbackLng: "vi",
-        keySeparator: false,
-        interpolation: {
-            escapeValue: false,
-        },
-    });
+i18n
+  .use(initReactI18next)
+  .use(Backend)
+  .use(LanguageDetector)
+  .init({
+    resources: resources,
+    lng: "vi",
+    fallbackLng: "vi",
+    keySeparator: false,
+    interpolation: {
+      escapeValue: false,
+    },
+  });
 
 export default i18n;

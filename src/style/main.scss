@@ -1,0 +1,136 @@
+// @import "~antd/dist/antd.min.css";
+// @import "~antd/dist/antd.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "./mixin.scss";
+@import "./global.scss";
+
+@font-face {
+  font-family: Montserrat;
+  src: url(./montserrat/Montserrat-Black.ttf);
+  font-weight: 900;
+}
+@font-face {
+  font-family: Montserrat;
+  src: url(./montserrat/Montserrat-ExtraBold.ttf);
+  font-weight: 800;
+}
+@font-face {
+  font-family: Montserrat;
+  src: url(./montserrat/Montserrat-Bold.ttf);
+  font-weight: 700;
+}
+@font-face {
+  font-family: Montserrat;
+  src: url(./montserrat/Montserrat-SemiBold.ttf);
+  font-weight: 600;
+}
+@font-face {
+  font-family: Montserrat;
+  src: url(./montserrat/Montserrat-Medium.ttf);
+  font-weight: 500;
+}
+@font-face {
+  font-family: Montserrat;
+  src: url(./montserrat/Montserrat-Regular.ttf);
+  font-weight: 400;
+}
+@font-face {
+  font-family: Montserrat;
+  src: url(./montserrat/Montserrat-Light.ttf);
+  font-weight: 300;
+}
+@font-face {
+  font-family: Montserrat;
+  src: url(./montserrat/Montserrat-ExtraLight.ttf);
+  font-weight: 200;
+}
+@font-face {
+  font-family: Montserrat;
+  src: url(./montserrat/Montserrat-Thin.ttf);
+  font-weight: 100;
+}
+
+body {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// code {
+//   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+//     monospace;
+// }
+#root {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: medium;
+  overflow: hidden;
+}
+input {
+  outline: none;
+  width: 100%;
+}
+canvas {
+  width: 100%;
+  max-width: 100%;
+}
+.App {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: large;
+  overflow: hidden;
+}
+.max-width1200 {
+  width: 100%;
+  max-width: 1200px;
+}
+
+input {
+  width: 100%;
+  padding: 3px 10px;
+  border: 1px solid #c5c5c5;
+  color: #383838;
+  border-radius: 5px;
+  background-color: #fff;
+  font-weight: 400;
+  font-size: 16px;
+}
+input:active,
+input:focus {
+  box-shadow: 0 0 5px #ccc;
+  // opacity: 1 !important;
+  outline: 0;
+  color: #333;
+}
+button {
+  border: 1px solid #b89d54;
+  border-radius: 5px;
+  text-align: center;
+  padding: 5px 10px;
+  // margin: 15px 0;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #ffd561;
+  cursor: pointer;
+}
+input[type="radio"] {
+  width: auto;
+  margin: auto 0;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+p {
+  margin: 0;
+}
+img {
+  display: unset;
+}
